@@ -1,0 +1,22 @@
+# Keeps data.json (read live by the CER-01 app and the cer-01-site page) in step with the ghostaiproject repos.
+name: sync
+on:
+  schedule: [{ cron: "*/30 * * * *" }]
+  workflow_dispatch:
+  repository_dispatch: { types: [sync] }
+  push: { paths: ["units.json", "scripts/sync.py", ".github/workflows/sync.yml"] }
+permissions: { contents: write }
+concurrency: { group: sync, cancel-in-progress: false }
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build data.json
+        env: { GH_TOKEN: "${{ secrets.GHOST_SYNC_TOKEN || github.token }}" }
+        run: python3 -I scripts/sync.py
+      - name: Commit if changed
+        run: |
+          git diff --quiet data.json && exit 0
+          git config user.name "cer01-sync"; git config user.email "cer01-sync@users.noreply.github.com"
+          git add data.json && git commit -m "data.json: live repo state" && git push

@@ -1,0 +1,208 @@
+{
+ "note": "Unit cards for the CER-01 app + site. Edit here; sync.yml adds live versions and status from each repo.",
+ "units": [
+  {
+   "id": "grocrun",
+   "no": "01",
+   "n": "GrocRun",
+   "c": "#ff2a4d",
+   "img": "https://raw.githubusercontent.com/ghostaiproject/cer01-releases/main/img/groc.jpg",
+   "kind": "Android app",
+   "ver": "v5.46.2",
+   "st": "build ok",
+   "ok": true,
+   "d": "Plans the cheapest grocery run across nearby stores: deals, routes, a list in drive order.",
+   "b": [
+    "Cheapest stop wins: every stop prices a skipped item.",
+    "Pointless runs fade out with a “Not worth it” pill.",
+    "Run spots look 30 km then 60 km and retry.",
+    "A swap store must win at least one item."
+   ],
+   "nv": "Not seen on a phone yet: 5.45.0 → 5.46.2.",
+   "tu": [
+    [
+     "/load grocrun",
+     "Loads the card, HANDOFF.md and the last APK."
+    ],
+    [
+     "ask",
+     "Describe the change; several get batched."
+    ],
+    [
+     "/ship",
+     "Bumps the version and builds the APK."
+    ],
+    [
+     "/save",
+     "Writes HANDOFF.md, then a fresh chat."
+    ]
+   ],
+   "repo": "ghostaiproject/Grocerierun",
+   "auto": {
+    "ver": "versions",
+    "run": "Build APK"
+   }
+  },
+  {
+   "id": "window",
+   "no": "02",
+   "n": "Ouvrelesfnetre",
+   "c": "#b026ff",
+   "img": "https://raw.githubusercontent.com/ghostaiproject/cer01-releases/main/img/win.jpg",
+   "kind": "Echo window alert",
+   "ver": "multi-home",
+   "st": "alerts on",
+   "ok": true,
+   "d": "Echo tells each home when to open the windows. Runs every 15 min from GitHub Actions.",
+   "b": [
+    "Multi-home: one home per secret, one broken home never stops the others.",
+    "Setup page in French first, English toggle.",
+    "Logs show private ids only, never names or codes.",
+    "Echo Show screen text and weather titles."
+   ],
+   "nv": "Latest alert run waits for approval in Actions. Alerts are paused until then.",
+   "tu": [
+    [
+     "/load window",
+     "Shows the last alert run first."
+    ],
+    [
+     "/test main",
+     "Fires the workflow for one or all homes."
+    ],
+    [
+     "/homes",
+     "Lists homes by name, never codes."
+    ],
+    [
+     "/ship",
+     "pytest, rebuild, push: main is live."
+    ]
+   ],
+   "repo": "ghostaiproject/Ouvrelesfnetre",
+   "auto": {
+    "run": "*"
+   }
+  },
+  {
+   "id": "folio",
+   "no": "03",
+   "n": "Folio",
+   "c": "#b7cfa3",
+   "img": "https://raw.githubusercontent.com/ghostaiproject/cer01-releases/main/img/solva.jpg",
+   "kind": "CPA firm app",
+   "ver": "main · 590b867",
+   "st": "in progress",
+   "ok": true,
+   "d": "Workbench for a Québec CPA firm: Tauri app for Windows and Android, encrypted vault, Drive sync.",
+   "b": [
+    "Engagements with stage gates, year-end file, time and billing.",
+    "Encrypted local vault, Windows Hello first, auto-lock after 10 min.",
+    "Encrypted 3-way sync through your own Google Drive.",
+    "Unsigned Windows and Android builds from CI."
+   ],
+   "nv": "Drive sync needs a Google OAuth client; not tried on real Google yet.",
+   "tu": [
+    [
+     "open",
+     "Web demo on GitHub Pages."
+    ],
+    [
+     "app",
+     "npx tauri build --debug --no-bundle."
+    ],
+    [
+     "test",
+     "npm run check runs every screen check."
+    ],
+    [
+     "ci",
+     "app.yml builds Windows + Android."
+    ]
+   ],
+   "repo": "ghostaiproject/ledger-mockup",
+   "auto": {
+    "ver": "sha"
+   }
+  },
+  {
+   "id": "ghosttv",
+   "no": "04",
+   "n": "GhostTv",
+   "c": "#19f0ff",
+   "img": "https://raw.githubusercontent.com/ghostaiproject/cer01-releases/main/img/ghosttv.jpg",
+   "kind": "Fire TV control",
+   "ver": "v1.0.0",
+   "st": "live",
+   "ok": true,
+   "d": "Drives the Fire TV Stick and the Samsung TV from the PC over adb: remote keys, apps, debloat, a clean Projectivy home.",
+   "b": [
+    "32 Amazon apps debloated; restore puts them back.",
+    "UX preset: animations 0.5x, ad tracking and usage data off.",
+    "Projectivy home: one Watch row of 9 apps, Amazon rows hidden.",
+    "Fast nav: one key batch per call, saved macros in skill/nav/."
+   ],
+   "nv": "Tuto and the v1.0.0 zip are public, so the TV clip and room screenshots are too.",
+   "tu": [
+    [
+     "/load ghosttv",
+     "Opens the card and HANDOFF.md."
+    ],
+    [
+     "firetv.ps1 go <keys>",
+     "Sends keys, returns a small screenshot."
+    ],
+    [
+     "firetv.ps1 run watch-apps",
+     "Replays a saved key path."
+    ],
+    [
+     "/save",
+     "Writes HANDOFF.md, then a fresh chat."
+    ]
+   ],
+   "repo": "ghostaiproject/GhostTv",
+   "auto": {
+    "ver": "release"
+   }
+  },
+  {
+   "id": "home",
+   "no": "05",
+   "n": "ADB agent HC",
+   "c": "#ff9a1a",
+   "img": "https://raw.githubusercontent.com/ghostaiproject/cer01-releases/main/img/home.jpg",
+   "kind": "adb over wifi",
+   "ver": "new",
+   "st": "new",
+   "ok": true,
+   "d": "Claude controls the devices on the home wifi over adb (wireless debugging): phones, tablets, TVs and sticks, from one chat.",
+   "b": [
+    "One unit for every adb device on the home network, GhostTv style.",
+    "Pair once over wifi, then Claude sends keys, opens apps, takes screenshots.",
+    "Own folder, own card; joins /load and /save as unit 05."
+   ],
+   "nv": "Nothing built yet: device list, pairing and repo come next.",
+   "tu": [
+    [
+     "/load",
+     "Pick ADB agent HC in the numbered menu."
+    ],
+    [
+     "pair",
+     "Wireless debugging on, pair the device with the PC."
+    ],
+    [
+     "ask",
+     "Tell Claude what to do on which device."
+    ],
+    [
+     "/save",
+     "Writes the card state, then a fresh chat."
+    ]
+   ],
+   "repo": "",
+   "auto": {}
+  }
+ ]
+}
