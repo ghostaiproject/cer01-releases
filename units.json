@@ -173,7 +173,7 @@
    "c": "#ff9a1a",
    "img": "https://raw.githubusercontent.com/ghostaiproject/cer01-releases/main/img/home.jpg",
    "kind": "adb over wifi",
-   "ver": "new",
+   "ver": "no repo",
    "st": "new",
    "ok": true,
    "d": "Claude controls the devices on the home wifi over adb (wireless debugging): phones, tablets, TVs and sticks, from one chat.",
