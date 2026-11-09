@@ -211,7 +211,7 @@
    "c": "#d4a84b",
    "img": "https://raw.githubusercontent.com/ghostaiproject/cer01-releases/main/img/cleancat.jpg",
    "kind": "Cleaning calendar app",
-   "ver": "v2.3.0",
+   "ver": "v2.4.5",
    "st": "live",
    "ok": true,
    "d": "Books and tracks house cleanings between the cleaning crew and the client: shared calendar, special requests, messages and money, on Android.",
@@ -219,7 +219,8 @@
     "Shared calendar: book any day, drag a visit to move it, Month and List views.",
     "Special requests: 5-step form, up to 3 photos, an extra price set on accept.",
     "The client joins with a 6-character pairing code, no password.",
-    "Gothic look, Galaxy Z Fold aware: two panes on the inner screen."
+    "Gothic look, Galaxy Z Fold aware: two panes on the inner screen.",
+    "CleanCat pet: a 16-bit witchy black cat sits on cards, paws chips, parachutes off fast scrolls, emoji bubbles."
    ],
    "nv": "Not seen on a real Z Fold yet; the APK still has to reach the client.",
    "tu": [
