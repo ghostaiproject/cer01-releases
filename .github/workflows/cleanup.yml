@@ -1,17 +1,22 @@
 name: cleanup
-# Daily: delete Actions artifacts older than 3 days and caches unused for 3 days.
+# Weekly (Sunday): delete Actions artifacts older than 3 days and caches unused for 3 days.
 # Release assets are not touched.
 on:
   schedule:
-    - cron: "17 4 * * *"
+    - cron: "17 4 * * 0"
   workflow_dispatch:
 
 permissions:
   actions: write
 
+concurrency:
+  group: cleanup-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   cleanup:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Delete old artifacts and unused caches
         env:
